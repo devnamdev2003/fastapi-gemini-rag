@@ -8,10 +8,11 @@ from google.genai import types
 
 from .rag import ask_rag
 
-
 load_dotenv()
 
 app = FastAPI()
+
+api_key = os.getenv("GEMINI_API_KEY")
 
 
 class QuestionRequest(BaseModel):
@@ -20,9 +21,7 @@ class QuestionRequest(BaseModel):
 
 @app.get("/")
 def home():
-    return {
-        "message": "Company AI Assistant is running"
-    }
+    return {"message": "Company AI Assistant is running"}
 
 
 @app.post("/ask")
@@ -33,5 +32,18 @@ def ask_question(request: QuestionRequest):
     return {
         "question": request.question,
         "answer": result["answer"],
-        "sources": result["sources"]
+        "sources": result["sources"],
     }
+
+
+@app.post("/ai")
+def ask_ai(request: QuestionRequest):
+    client = genai.Client(
+        api_key=api_key, http_options=types.HttpOptions(timeout=60000)
+    )
+
+    response = client.models.generate_content(
+        model="gemini-3.5-flash-lite", contents=request.question
+    )
+    client.close()
+    return {"question": request.question, "answer": response.text}
