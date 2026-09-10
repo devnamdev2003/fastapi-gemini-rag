@@ -1,0 +1,11 @@
+IT Support Guide
+
+Employees can contact the IT Help Desk for laptop, software, network, VPN, and access-related issues.
+
+For critical production issues, employees should contact the IT Help Desk immediately and mark the ticket as high priority.
+
+For password reset requests, employees should use the company's self-service password reset portal.
+
+VPN problems should first be checked by restarting the VPN client and verifying the internet connection.
+
+If the problem continues, employees should create an IT support ticket with a description of the issue and relevant screenshots.
