@@ -55,35 +55,7 @@ uvicorn app.main:app --reload
 }
 ```
 
-
-
-**Core Project Structure**
-
-* `app/main.py`: Initializes the FastAPI application and exposes the `/ask` endpoint.
-
-
-* `app/rag.py`: Handles context retrieval and prompts the `gemini-3.5-flash-lite` model for answers.
-
-
-* `app/retriever.py`: Executes hybrid similarity searches against the local vector database.
-
-
-* `app/embedding.py`: Connects to the `gemini-embedding-2` model to vectorize text.
-
-
-* `app/chunker.py`: Splits large documents into manageable text blocks.
-
-
-* `app/vector_store.py`: Builds and saves the `vector_store.json` file.
-
-
-* `test_api.py`: A utility script to verify your Gemini API key connection.
-
----
-
 ## More Learning:
 
-- [About](./notes/about.md)
-- [Work-Flow](./notes/work-flow.md)
-- [Deployment on vercel](./notes/deployment.md)
-- [Vector](./notes/vector.md)
+- [01-basic-rag](./01-basic-rag/README.md)
+- [02-tool-calling](./02-tool-calling/README.md)
