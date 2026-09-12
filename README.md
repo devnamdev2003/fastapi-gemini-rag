@@ -1,4 +1,5 @@
-**Project Overview**
+**Project Overview:**
+
 This application is a FastAPI-based AI assistant that reads company documents, generates vector embeddings using the Google Gemini API, and answers user questions strictly based on the provided context. It utilizes a custom local JSON vector store and implements a hybrid retrieval system combining cosine similarity and keyword matching.
 
 **Prerequisites**
@@ -77,3 +78,12 @@ uvicorn app.main:app --reload
 
 
 * `test_api.py`: A utility script to verify your Gemini API key connection.
+
+---
+
+## More Learning:
+
+- [About](./notes/about.md)
+- [Work-Flow](./notes/work-flow.md)
+- [Deployment on vercel](./notes/deployment.md)
+- [Vector](./notes/vector.md)

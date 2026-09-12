@@ -33,17 +33,18 @@ def ask_question(request: QuestionRequest):
         "question": request.question,
         "answer": result["answer"],
         "sources": result["sources"],
+        "context": result["context"]
     }
 
 
-@app.post("/ai")
-def ask_ai(request: QuestionRequest):
-    client = genai.Client(
-        api_key=api_key, http_options=types.HttpOptions(timeout=60000)
-    )
+# @app.post("/ai")
+# def ask_ai(request: QuestionRequest):
+#     client = genai.Client(
+#         api_key=api_key, http_options=types.HttpOptions(timeout=60000)
+#     )
 
-    response = client.models.generate_content(
-        model="gemini-3.5-flash-lite", contents=request.question
-    )
-    client.close()
-    return {"question": request.question, "answer": response.text}
+#     response = client.models.generate_content(
+#         model="gemini-3.5-flash-lite", contents=request.question
+#     )
+#     client.close()
+#     return {"question": request.question, "answer": response.text}

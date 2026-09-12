@@ -72,5 +72,6 @@ User Question:
 
     return {
         "answer": response.text,
-        "sources": sources
+        "sources": sources,
+        "context": context
     }

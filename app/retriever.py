@@ -38,7 +38,7 @@ def keyword_similarity(question, text):
     return len(matching_words) / len(question_words)
 
 
-def retrieve_documents(question, top_k=3, similarity_threshold=0.65):
+def retrieve_documents(question, top_k=3, similarity_threshold=0.50):
 
     vector_store = load_vector_store()
 
