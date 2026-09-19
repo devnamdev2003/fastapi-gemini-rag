@@ -8,12 +8,14 @@ from pydantic import BaseModel
 from google import genai
 from google.genai import types
 from .agent import run_agent
+from fastapi.middleware.cors import CORSMiddleware
 
 api_key = os.getenv("GEMINI_API_KEY")
 
 # ---------------------------------------------------------
 # Create FastAPI application.
 # ---------------------------------------------------------
+
 
 app = FastAPI(
     title="Company AI Agent",
@@ -23,6 +25,17 @@ app = FastAPI(
     version="1.0.0"
 )
 
+origins = [
+    "http://localhost:4200",  # Angular / local frontend
+    # "https://your-production-frontend.vercel.app",  # Add production domain when deployed
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:4200"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # ---------------------------------------------------------
 # Request model
